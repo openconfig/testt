@@ -17,7 +17,5 @@ again.
 
 ## Code reviews
 
-All submissions, including submissions by project members, require review. We
-accept GitHub pull requests, however all commits are made internally and
-mirrored out. This is done so that our internal verification steps run before
-any code is submitted.
+All submissions, including submissions by project members, require review.
+Fork the repo and send a pull request for review.
