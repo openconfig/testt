@@ -169,7 +169,7 @@ func TestPanic(t *testing.T) {
 		defer func() {
 			got = recover()
 		}()
-		ExpectFatal(t, func(t testing.TB) {
+		ExpectFatal(t, func(_ testing.TB) {
 			panic(wantPanicArg)
 		})
 	}()
