@@ -1,0 +1,16 @@
+---
+name: Lint Code Base
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+jobs:
+  lint:
+    uses: openconfig/common-ci/.github/workflows/linter.yml@88a41b190576ebf6d51b5204c1056af2bda19036
+    permissions:
+      contents: read
+      packages: read
