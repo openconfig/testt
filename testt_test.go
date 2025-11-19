@@ -67,7 +67,7 @@ func TestCaptureFatal(t *testing.T) {
 		wantMsg *string
 	}{{
 		desc:    "NoError",
-		fn:      func(t testing.TB) {},
+		fn:      func(_ testing.TB) {},
 		wantMsg: nil,
 	}, {
 		desc: "FailNow",
@@ -124,7 +124,7 @@ func TestErrorMsg(t *testing.T) {
 		wantMsgs: []string{"hello\n", "Planet Earth\n"},
 	}, {
 		desc:          "Fatal due to no error",
-		fn:            func(t testing.TB) {},
+		fn:            func(_ testing.TB) {},
 		wantSubstring: "did not raise an error as was expected",
 	}}
 
@@ -145,7 +145,7 @@ func TestErrorMsg(t *testing.T) {
 
 func TestNoFatal(t *testing.T) {
 	tt := &testT{}
-	ExpectFatal(tt, func(t testing.TB) {})
+	ExpectFatal(tt, func(_ testing.TB) {})
 	if want := "did not fail fatally"; !strings.Contains(tt.got, want) {
 		t.Errorf("Expect Fatal got msg = %q, want %q", tt.got, want)
 	}
@@ -169,7 +169,7 @@ func TestPanic(t *testing.T) {
 		defer func() {
 			got = recover()
 		}()
-		ExpectFatal(t, func(t testing.TB) {
+		ExpectFatal(t, func(_ testing.TB) {
 			panic(wantPanicArg)
 		})
 	}()
